@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="財務デューデリジェンス（財務DD）とは？目的・調査内容・流れ・費用を公認会計士が解説。" />
+  <title>財務デューデリジェンス（財務DD）とは？目的・調査内容・流れ・費用を公認会計士が解説</title>
+
+  <!--
+  =========================================
+  【必ず置換】お問い合わせURL
+  下の __CONTACT_URL__ を、公開後の問い合わせフォームURLに置き換えてください。
+  例）https://example.com/contact
+  =========================================
+  -->
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Brand */
+      --navy:#2A2954;   /* from logo tone */
+      --navy2:#32315E;
+      --link:#1f3a8a;
+
+      /* Page (readability-first) */
+      --page:#f6f7fb;
+      --paper:#ffffff;
+      --line:#e6e8ef;
+      --line2:#d6dae6;
+
+      --text:#111111;
+      --text2:#1f2937; /* slate-800 */
+      --muted:#6b7280; /* gray-500 */
+
+      --accent:#0f766e; /* subtle accent for chips */
+      --good:#16a34a;
+      --warn:#b45309;
+
+      --radius: 18px;
+      --radius2: 22px;
+      --shadow: 0 10px 28px rgba(17,24,39,.08);
+      --shadow2: 0 6px 18px rgba(17,24,39,.06);
+
+      --max: 1120px;
+      --prose: 72ch;
+
+      --p: 16.5px;      /* paragraph font size */
+      --lh: 1.78;       /* paragraph line-height (slightly tighter) */
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: "Noto Sans JP", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      color: var(--text);
+      background: var(--page);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden; /* full-bleed対策（横スクロール防止） */
+    }
+
+    a{ color: var(--link); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    img{ max-width:100%; height:auto; }
+
+    .wrap{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
+    @media (max-width: 520px){ .wrap{ width: calc(100% - 28px); } }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 340px;
+      gap: 22px;
+      align-items:start;
+      padding-bottom: 70px;
+    }
+    @media (max-width: 980px){ .grid{ grid-template-columns: 1fr; } }
+
+    /* Skip link */
+    .skip{
+      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip:focus{
+      position:fixed; left:14px; top:14px; width:auto; height:auto;
+      padding:10px 12px;
+      background: rgba(17,24,39,.92);
+      color:#fff;
+      border-radius: 12px;
+      z-index: 9999;
+    }
+
+    /* HERO (dark allowed) */
+    .hero{
+      color: rgba(255,255,255,.92);
+      background:
+        linear-gradient(180deg, rgba(6,16,24,.88), rgba(6,16,24,.70) 45%, rgba(6,16,24,.92)),
+        url("https://static.wixstatic.com/media/ef45fa_85d537fb06cf432284f104a9cae89da8~mv2.png") center/cover no-repeat;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      padding: clamp(18px, 3vw, 40px) 0 18px;
+
+      /* ===== 重要：ヒーローを画面端まで広げる（埋め込み/コンテナpadding対策） ===== */
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      border-radius: 0;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      background: rgba(0,0,0,.18);
+      backdrop-filter: blur(6px);
+    }
+    .brand img{ height:22px; width:auto; display:block; }
+    .brand small{ color: rgba(255,255,255,.70); font-weight: 500; }
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.16);
+      color: rgba(255,255,255,.88);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    h1{
+      font-family: "Noto Serif JP", serif;
+      line-height: 1.35;
+      letter-spacing: .01em;
+      margin: 8px 0 10px;
+      font-size: clamp(24px, 3.5vw, 40px);
+      text-shadow: 0 10px 24px rgba(0,0,0,.25);
+    }
+
+    .lede{
+      max-width: 84ch;
+      margin: 10px 0 12px;
+      color: rgba(255,255,255,.86);
+      font-size: clamp(14.5px, 1.55vw, 16px);
+      line-height: 1.85;
+    }
+
+    .meta{
+      display:flex; flex-wrap:wrap; gap:10px;
+      color: rgba(255,255,255,.72);
+      font-size: 13.5px;
+      align-items:center;
+    }
+    .meta .dot{ width:4px; height:4px; border-radius:999px; background: rgba(255,255,255,.35); display:inline-block; }
+
+    /* Cards */
+    .card{
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+    }
+    .inner{ padding: 20px; }
+    @media (max-width: 520px){ .inner{ padding: 16px; } }
+
+    /* TOC */
+    .toc h2{
+      margin: 0 0 10px;
+      font-size: 13.5px;
+      letter-spacing: .08em;
+      color: #111827;
+    }
+    .toc ol{ margin:0; padding-left: 18px; color: var(--text2); }
+    .toc li{ margin: 6px 0; }
+    .toc a{ color: #111827; }
+
+    .tocMobile{ display:none; }
+    @media (max-width: 980px){
+      .tocDesktop{ display:none; }
+      .tocMobile{ display:block; margin-top: 14px; }
+      .toc details{
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: #fff;
+        padding: 12px 14px;
+        box-shadow: var(--shadow2);
+      }
+      .toc summary{
+        cursor:pointer;
+        list-style:none;
+        font-weight: 700;
+        letter-spacing:.02em;
+        color: #111827;
+      }
+      .toc summary::-webkit-details-marker{ display:none; }
+      .toc details[open]{ padding-bottom: 14px; }
+      .toc details ol{ margin-top: 10px; }
+    }
+
+    /* Article */
+    .article{ box-shadow: var(--shadow); }
+
+    .prose{ max-width: var(--prose); margin: 0 auto; }
+
+    /* ===== セクション区切り：見出し＋右側ライン（参考スクショ風） ===== */
+    .article h2{
+      margin: 28px 0 10px;
+      font-size: clamp(19px, 2.1vw, 22px);
+      line-height: 1.45;
+      letter-spacing: .02em;
+      color: #0f172a;
+
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .article h2:first-child{ margin-top: 0; }
+
+    /* 見出し右側の横線 */
+    .article h2::after{
+      content: "";
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(42,41,84,.55), rgba(42,41,84,.10));
+      border-radius: 999px;
+      transform: translateY(1px);
+    }
+
+    /* 次セクションへの切り替わり感（うっすら区切り） */
+    .article h2:not(:first-of-type){
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .article h3{
+      margin: 18px 0 8px;
+      font-size: clamp(16px, 1.9vw, 18px);
+      line-height: 1.55;
+      color: #111827;
+      position: relative;
+      padding-left: 10px;
+    }
+    /* 小見出しも「区切られてる」感を薄く出す（主張しすぎない） */
+    .article h3::before{
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .55em;
+      width: 4px;
+      height: 1.1em;
+      border-radius: 999px;
+      background: rgba(42,41,84,.45);
+    }
+
+    .article p{
+      margin: 10px 0;
+      color: var(--text);
+      font-size: var(--p);
+      line-height: var(--lh);
+    }
+    @media (max-width: 520px){
+      :root{ --p: 16px; }
+    }
+
+    .article ul{
+      margin: 10px 0;
+      padding-left: 20px;
+      color: var(--text);
+      font-size: var(--p);
+      line-height: var(--lh);
+    }
+    .article li{ margin: 6px 0; }
+
+    [id]{ scroll-margin-top: 12px; }
+
+    /* Section kicker */
+    .kicker{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: #f3f5ff;
+      border: 1px solid #e3e7ff;
+      color: #111827;
+      font-weight: 700;
+      margin: 4px 0 14px;
+    }
+    .svg{ width: 38px; height: 38px; display:block; }
+
+    /* Callouts / boxes */
+    .note{
+      margin: 12px 0;
+      padding: 14px;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+    .note b{ color:#0f172a; }
+
+    .miniRow{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+      margin: 14px auto 6px;
+      max-width: var(--prose);
+    }
+    @media (max-width: 680px){ .miniRow{ grid-template-columns: 1fr; } }
+
+    .mini{
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      padding: 14px;
+      box-shadow: 0 6px 16px rgba(17,24,39,.05);
+    }
+    .mini b{ display:block; margin-top: 10px; font-size: 15px; color:#0f172a; }
+    .mini p{ margin: 6px 0 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
+
+    /* Tables */
+    .tableWrap{
+      overflow-x:auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: #fff;
+      margin: 12px auto 18px;
+      max-width: var(--prose);
+      box-shadow: 0 6px 16px rgba(17,24,39,.05);
+    }
+    table{
+      width:100%;
+      min-width: 520px;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 0;
+      font-size: 14.5px;
+      color: var(--text);
+    }
+    th, td{
+      padding: 12px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      white-space: nowrap;
+    }
+    th{
+      text-align:left;
+      color: #0f172a;
+      background: #f3f5ff;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+    tr:last-child td{ border-bottom: none; }
+
+    /* Simple chart */
+    .chart{
+      margin: 12px auto 18px;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: #fff;
+      max-width: var(--prose);
+      box-shadow: 0 6px 16px rgba(17,24,39,.05);
+    }
+    .bars{ display:grid; gap: 10px; margin-top: 10px; }
+    .bar{
+      display:grid;
+      grid-template-columns: 160px 1fr 92px;
+      gap: 10px;
+      align-items:center;
+    }
+    @media (max-width: 520px){ .bar{ grid-template-columns: 1fr; } }
+    .bar .label{ color: #111827; font-size: 14px; }
+    .bar .track{
+      height: 12px;
+      background: #eef2ff;
+      border-radius: 999px;
+      overflow:hidden;
+      border: 1px solid #e0e7ff;
+    }
+    .bar .fill{
+      height:100%;
+      background: linear-gradient(90deg, rgba(42,41,84,.90), rgba(42,41,84,.45));
+      width: 40%;
+      border-radius: 999px;
+    }
+    .bar .val{ color: var(--muted); font-variant-numeric: tabular-nums; font-size: 13.5px; }
+
+    /* Flow */
+    .flow{
+      margin: 12px auto 18px;
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: #fff;
+      max-width: var(--prose);
+      box-shadow: 0 6px 16px rgba(17,24,39,.05);
+    }
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(6, minmax(0,1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+    @media (max-width: 900px){ .steps{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    @media (max-width: 520px){ .steps{ grid-template-columns: 1fr; } }
+    .step{
+      border-radius: 16px;
+      padding: 12px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      min-height: 92px;
+    }
+    .step .n{
+      display:inline-flex; align-items:center; justify-content:center;
+      width: 26px; height: 26px; border-radius: 999px;
+      background: #eef2ff;
+      border: 1px solid #e0e7ff;
+      color: #111827;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .step b{ display:block; font-size: 13.5px; line-height:1.35; color:#0f172a; }
+    .step span{ display:block; font-size: 12.8px; color: var(--muted); margin-top: 6px; line-height:1.45; }
+
+    /* Compare boxes */
+    .compare{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 12px auto 18px;
+      max-width: var(--prose);
+    }
+    @media (max-width: 780px){ .compare{ grid-template-columns: 1fr; } }
+    .pane{
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 14px;
+      box-shadow: 0 6px 16px rgba(17,24,39,.05);
+    }
+    .pane h4{
+      margin: 0 0 8px;
+      font-size: 14.5px;
+      letter-spacing:.02em;
+      display:flex; align-items:center; gap: 8px;
+      color:#0f172a;
+    }
+    .badge{ width:10px; height:10px; border-radius: 999px; display:inline-block; }
+
+    /* CTA banner inside article */
+    .ctaBanner{
+      margin: 18px auto 6px;
+      max-width: var(--prose);
+      border-radius: 18px;
+      border: 1px solid #dbe2ff;
+      background: linear-gradient(90deg, #f3f5ff, #ffffff);
+      padding: 16px;
+    }
+    .ctaBanner b{ color:#0f172a; }
+    .ctaBanner p{ margin: 8px 0 12px; color: var(--text2); }
+
+    /* Sidebar */
+    .side .box{
+      padding: 18px;
+      border-radius: var(--radius2);
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow2);
+    }
+    .side .box + .box{ margin-top: 16px; }
+    @media (min-width: 981px){
+      .side{ position: sticky; top: 18px; align-self: start; }
+    }
+
+    .author{ display:flex; gap: 14px; align-items:flex-start; }
+    .avatar{
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      background: #f3f5ff;
+      border: 1px solid #e3e7ff;
+      display:flex; align-items:center; justify-content:center;
+      flex: 0 0 auto;
+    }
+    .author b{ display:block; line-height:1.35; color:#0f172a; }
+    .author small{ display:block; color: var(--muted); margin-top: 6px; line-height:1.7; }
+
+    .cta{ display:grid; gap: 10px; margin-top: 12px; }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 13px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(42,41,84,.18);
+      background: var(--navy);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      min-height: 46px;
+      box-shadow: 0 8px 18px rgba(42,41,84,.18);
+    }
+    .btn:hover{ filter: brightness(1.05); text-decoration:none; }
+    .btn.secondary{
+      border: 1px solid var(--line2);
+      background: #fff;
+      color: #111827;
+      box-shadow: none;
+    }
+
+    .footer{
+      margin-top: 26px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12.8px;
+      line-height: 1.85;
+      max-width: var(--prose);
+      margin-left:auto; margin-right:auto;
+    }
+
+    .hr{ height:1px; background: var(--line); margin: 18px auto; max-width: var(--prose); }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">本文へスキップ</a>
+
+  <!-- HERO (dark tone is kept) -->
+  <header class="hero" role="banner" aria-label="記事ヘッダー">
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand" aria-label="ブランド">
+          <img src="https://static.wixstatic.com/media/ef45fa_ee036c6be23b48ed9bc7dc22a2f90da9~mv2.png" alt="M&A Accounting Finance Tohoku ロゴ" />
+          <small>FinTrust / コラム</small>
+        </div>
+        <div class="pill" title="対象：M&A・事業承継">
+          <span aria-hidden="true">◆</span>
+          <span>財務DD / M&A / 事業承継</span>
+        </div>
+      </div>
+
+      <h1>財務デューデリジェンス（財務DD）とは？<br/>目的・調査内容・流れ・費用を公認会計士が解説</h1>
+
+      <p class="lede">
+        財務デューデリジェンスは、買い手が「高く買いすぎない」「想定外の損失を抱えない」ための重要な調査です。
+        中小企業M&Aでは、決算書だけでは見えない実態や論点が少なくありません。本記事では、目的・調査内容・進め方・費用感まで実務目線で整理します。
+      </p>
+
+      <div class="meta" aria-label="著者情報">
+        <span>著者：成田貴紀（公認会計士・株式会社M&A会計ファイナンス東北 代表パートナー）</span>
+        <span class="dot" aria-hidden="true"></span>
+        <span>財務DD 実施件数100件超</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="content" id="main" role="main" style="padding-top:18px;">
+    <div class="wrap grid">
+
+      <!-- MAIN -->
+      <section aria-label="記事本文">
+
+        <!-- TOC desktop (簡潔化：大項目中心) -->
+        <div class="card toc tocDesktop" id="top">
+          <div class="inner">
+            <h2>目次（大項目）</h2>
+            <ol>
+              <li><a href="#intro">はじめに</a></li>
+              <li><a href="#what">財務DDとは</a></li>
+              <li><a href="#why">なぜ必要か</a></li>
+              <li><a href="#scope">調査内容（何を見るか）</a></li>
+              <li><a href="#process">進め方（流れ）</a></li>
+              <li><a href="#fee">費用の目安</a></li>
+              <li><a href="#term">期間の目安</a></li>
+              <li><a href="#summary">まとめ</a></li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- TOC mobile (collapsible) -->
+        <div class="toc tocMobile">
+          <details>
+            <summary>目次（大項目）を開く</summary>
+            <ol>
+              <li><a href="#intro">はじめに</a></li>
+              <li><a href="#what">財務DDとは</a></li>
+              <li><a href="#why">なぜ必要か</a></li>
+              <li><a href="#scope">調査内容（何を見るか）</a></li>
+              <li><a href="#process">進め方（流れ）</a></li>
+              <li><a href="#fee">費用の目安</a></li>
+              <li><a href="#term">期間の目安</a></li>
+              <li><a href="#summary">まとめ</a></li>
+            </ol>
+          </details>
+        </div>
+
+        <!-- ARTICLE -->
+        <article class="article card" style="margin-top:18px;">
+          <div class="inner">
+
+            <div class="prose">
+              <div class="kicker" id="intro">
+                <svg class="svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                  <path d="M6 36c9 0 9-8 18-8s9 8 18 8 9-8 18-8" stroke="rgba(42,41,84,.85)" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M6 46c9 0 9-8 18-8s9 8 18 8 9-8 18-8" stroke="rgba(42,41,84,.35)" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <span>はじめに</span>
+              </div>
+
+              <p>
+                M&Aや事業承継を検討していると、「財務デューデリジェンス（財務DD）」という言葉を目にすることが増えます。
+                一方で、経営者の方からは「結局何をするのか」「決算書だけで足りないのか」「どんなリスクが見つかるのか」「費用や期間は？」といったご相談をよくいただきます。
+              </p>
+              <p>
+                財務デューデリジェンスは、M&Aで買い手が「高く買いすぎない」「想定外の損失を抱えない」ために行う重要な調査です。
+                特に中小企業M&Aでは、決算書だけでは把握できない実態や、経営者説明だけでは見えにくい論点が少なくありません。
+              </p>
+            </div>
+
+            <div class="miniRow" aria-label="財務DDの要点（イラスト付き）">
+              <div class="mini">
+                <svg class="svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                  <path d="M14 46V18c0-2 1.6-3.6 3.6-3.6h28.8C48.4 14.4 50 16 50 18v28" stroke="rgba(15,23,42,.70)" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M20 24h24M20 32h18M20 40h22" stroke="rgba(42,41,84,.85)" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <b>決算書は「入口」</b>
+                <p>数字の裏側（実態）に引き直して検証します。</p>
+              </div>
+              <div class="mini">
+                <svg class="svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                  <path d="M14 44c0-12 8-22 18-22s18 10 18 22" stroke="rgba(15,23,42,.70)" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M32 32l10-6" stroke="rgba(42,41,84,.85)" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="32" cy="32" r="18" stroke="rgba(15,23,42,.20)" stroke-width="3"/>
+                </svg>
+                <b>想定外を減らす</b>
+                <p>買収後の資金繰り・利益ブレ・税務リスクを抑えます。</p>
+              </div>
+              <div class="mini">
+                <svg class="svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                  <path d="M18 44l10-10 8 8 12-16" stroke="rgba(42,41,84,.85)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M14 14h36v36H14z" stroke="rgba(15,23,42,.70)" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <b>価格・条件に直結</b>
+                <p>正常収益力／純有利子負債／運転資本などを整理します。</p>
+              </div>
+            </div>
+
+            <div class="prose">
+              <p>
+                この記事では、財務デューデリジェンスとは何か、なぜ必要なのか、何を調査するのか、どのように進むのか、費用や期間の目安を整理して解説します。
+              </p>
+            </div>
+
+            <div class="hr"></div>
+
+            <div class="prose">
+              <h2 id="what">財務デューデリジェンス（財務DD）とは？</h2>
+              <p>
+                財務デューデリジェンス（Financial Due Diligence）とは、M&Aの買い手が、対象会社の財務状況・収益力・資金繰り・潜在的なリスクを専門家が調査する手続です。
+                「デューデリジェンス」は「相当な注意を払った調査」という意味で、表面的な数字ではなく実態ベースで確認することが本質です。
+              </p>
+
+              <div class="note">
+                <b>財務DDを一言でいうと</b><br/>
+                「この会社を、いくらで、どの条件で買うべきか」を判断するために、決算書の裏側まで掘り下げて検証する調査です。
+              </div>
+
+              <h2 id="why">財務DDはなぜ必要なのか？</h2>
+
+              <h3>1. 決算書だけでは実態がわからないため</h3>
+              <p>
+                中小企業の決算書は税務申告が主目的のことが多く、M&Aの判断に必要な「実態」が十分に表れていないケースがあります。
+                例えば、役員報酬の歪み、滞留債権、実態と乖離した在庫、未計上債務（賞与・残業・退職給付）、関連当事者取引などが挙げられます。
+              </p>
+
+              <h3>2. 買収価格の妥当性を判断するため</h3>
+              <p>
+                財務DDの結果は、企業価値評価（バリュエーション）や買収価格の交渉に直結します。
+                正常収益力の下振れ、純有利子負債の増加、簿外債務、運転資本の増加が判明すれば、価格の見直しや契約条件の調整が必要になります。
+              </p>
+
+              <h3>3. M&A後の想定外を減らすため</h3>
+              <p>
+                クロージング後に「資金繰りが想定より厳しい」「利益が想定より出ない」「税務リスクが顕在化」「契約外の負担が見つかった」などが起こると、買収効果が毀損します。
+                財務DDは、買収後トラブルを未然に防ぐための保険でもあります。
+              </p>
+
+              <h2 id="scope">財務DDで調査する主な内容</h2>
+
+              <h3>1. 正常収益力の分析</h3>
+              <p>
+                一過性の売却益や補助金収入、オーナー固有の事情、私的費用の混在などを調整し、
+                <b>継続的に見込める利益水準（正常収益力）</b>を把握します。
+              </p>
+
+              <h3>2. BS（貸借対照表）の実態把握</h3>
+              <p>
+                売掛金（滞留・不良）、棚卸資産（不良・滞留）、固定資産（遊休・更新負担）、借入（条件・財務制限条項）、
+                未払金・引当金（未計上債務）など、BSに潜むリスクを丁寧に確認します。
+              </p>
+
+              <h3>3. 簿外債務・偶発債務の確認</h3>
+              <p>
+                役員退職慰労金、未払残業代、原状回復費用、税務否認リスク、訴訟・クレーム、保証・担保提供など、
+                将来的に損失につながり得る論点を洗い出します。
+              </p>
+
+              <h3>4. 運転資本の分析</h3>
+              <p>
+                売掛金回収の遅れ、在庫積み増し、買掛金サイトの短さなどにより、買収後に追加運転資金が必要となる可能性を検討します。
+              </p>
+
+              <h3>5. 資金繰り・キャッシュフローの確認</h3>
+              <p>
+                営業CFの安定性、設備投資負担、返済能力、月次の資金繰り状況を確認し、買収後の資金支援の必要性を見極めます。
+              </p>
+
+              <h3>6. 税務リスクの確認</h3>
+              <p>
+                役員関連費用、消費税区分の誤り、交際費・寄附金、棚卸評価、関連当事者との価格設定、源泉徴収漏れなどは、追徴課税につながることがあります。
+              </p>
+
+              <h3>7. 関連当事者取引の整理</h3>
+              <p>
+                オーナー個人・親族会社・資産管理会社との取引条件が市場条件と異なる場合、買収後の利益水準や資金繰りが変化し得ます。
+                役員貸付金・役員借入金の残高も含め、慎重に確認します。
+              </p>
+
+              <h2 id="process">財務DDの進め方・流れ</h2>
+            </div>
+
+            <div class="flow" aria-label="財務DDの流れ（図）">
+              <b style="display:block; letter-spacing:.02em; color:#0f172a;">全体フロー（図解）</b>
+              <div class="steps">
+                <div class="step"><div class="n">1</div><b>RFI提示</b><span>情報提供依頼リストを作成・提出</span></div>
+                <div class="step"><div class="n">2</div><b>資料分析</b><span>デスクトップレビューで異常点抽出</span></div>
+                <div class="step"><div class="n">3</div><b>インタビュー</b><span>経営者・経理へ背景・実態を確認</span></div>
+                <div class="step"><div class="n">4</div><b>追加QA</b><span>追加質問・追加資料で深掘り</span></div>
+                <div class="step"><div class="n">5</div><b>レポート</b><span>調査結果を整理しDD報告書作成</span></div>
+                <div class="step"><div class="n">6</div><b>交渉反映</b><span>価格・表明保証・補償等へ反映</span></div>
+              </div>
+            </div>
+
+            <div class="prose">
+              <h3>Step1：情報提供依頼リスト（RFI）の提示</h3>
+              <ul>
+                <li>過去3～5期分の決算書</li>
+                <li>総勘定元帳、勘定科目明細</li>
+                <li>月次試算表</li>
+                <li>売上・仕入・在庫の明細データ</li>
+                <li>借入一覧、契約書、返済予定表</li>
+                <li>固定資産台帳</li>
+                <li>人員一覧、給与関連資料</li>
+                <li>税務申告書</li>
+                <li>主要契約書、賃貸借契約書</li>
+              </ul>
+
+              <h3>Step2：資料分析</h3>
+              <p>受領資料をもとに数値推移、異常点、内訳、資金繰り等を分析し、追加論点を洗い出します。</p>
+
+              <h3>Step3：マネジメントインタビュー</h3>
+              <p>売上・利益変動要因、主要取引先、不採算事業、オーナー関連取引、設備投資・資金需要などを確認します。</p>
+
+              <h3>Step4：追加質問・追加資料の依頼</h3>
+              <p>追加QAの質がレポート深度を左右します。</p>
+
+              <h3>Step5：DDレポートの作成</h3>
+              <ul>
+                <li>前提・スコープ</li>
+                <li>業績推移・正常収益力</li>
+                <li>BS項目の実態把握</li>
+                <li>純有利子負債・運転資本の整理</li>
+                <li>主要リスクと価格・条件への影響</li>
+              </ul>
+
+              <h3>Step6：価格交渉・条件調整への反映</h3>
+              <p>
+                表明保証、補償条項、アーンアウト、運転資本調整など、契約条件へ落とし込みます。
+                レポート提出で終わりではなく、交渉にどう生かすかが重要です。
+              </p>
+
+              <h2 id="fee">財務DDにかかる費用の目安</h2>
+            </div>
+
+            <div class="tableWrap" aria-label="費用の目安（表：横スクロール対応）">
+              <table>
+                <thead>
+                  <tr><th>対象会社の売上規模</th><th>費用の目安</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>～5億円程度</td><td>50万～150万円</td></tr>
+                  <tr><td>5億円～30億円程度</td><td>150万～400万円</td></tr>
+                  <tr><td>30億円以上</td><td>400万円～（個別見積）</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="chart" aria-label="費用レンジ（図：簡易バー）">
+              <b style="display:block; letter-spacing:.02em; color:#0f172a;">費用レンジのイメージ（図）</b>
+              <div class="bars">
+                <div class="bar">
+                  <div class="label">～5億円</div>
+                  <div class="track"><div class="fill" style="width:35%"></div></div>
+                  <div class="val">50–150万</div>
+                </div>
+                <div class="bar">
+                  <div class="label">5–30億円</div>
+                  <div class="track"><div class="fill" style="width:65%"></div></div>
+                  <div class="val">150–400万</div>
+                </div>
+                <div class="bar">
+                  <div class="label">30億円以上</div>
+                  <div class="track"><div class="fill" style="width:85%"></div></div>
+                  <div class="val">400万〜</div>
+                </div>
+              </div>
+              <p style="margin:10px 0 0; color: var(--muted); font-size: 13.5px; line-height:1.8;">
+                ※レンジ幅は案件の複雑性・月次管理状況・在庫/原価計算の難易度・短納期対応などで変動します。
+              </p>
+            </div>
+
+            <div class="prose">
+              <h2 id="term">財務DDにかかる期間の目安</h2>
+            </div>
+
+            <div class="tableWrap" aria-label="期間の目安（表：横スクロール対応）">
+              <table>
+                <thead>
+                  <tr><th>案件規模</th><th>期間の目安</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>小規模案件</td><td>2～4週間</td></tr>
+                  <tr><td>中規模案件</td><td>3～6週間</td></tr>
+                  <tr><td>複雑な案件・大型案件</td><td>1～3か月</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="prose">
+              <p>
+                実際には、売り手側の資料提出スピードが全体スケジュールに大きく影響します。
+                短期クロージングが求められる場合は、重要論点に絞って短期間で実施することもあります。
+              </p>
+
+              <h2 id="summary">まとめ</h2>
+              <p>
+                財務デューデリジェンス（財務DD）は、対象会社の財務実態を把握し、買収価格や契約条件の妥当性を検討するための重要な調査です。
+                決算書の裏側まで掘り下げ、利益の実力値・資産負債の実態・簿外リスク・資金繰りを確認することで、取引条件を適正化し、買収後の想定外を減らします。
+              </p>
+
+              <div class="note">
+                <b>要点（箇条書き）</b>
+                <ul style="margin:10px 0 0; padding-left: 20px;">
+                  <li>財務DD：利益の実力値、資産負債の実態、簿外リスク、資金繰りを確認</li>
+                  <li>理由：決算書だけでは見えない問題を把握し、適正価格・適正条件で取引するため</li>
+                  <li>範囲：正常収益力、BS分析、簿外債務、運転資本、CF、税務リスク、関連当事者取引</li>
+                  <li>費用：50万～400万円程度（規模・複雑性で変動）</li>
+                  <li>期間：2～6週間程度（大型/複雑は1～3か月）</li>
+                  <li>依頼先：独立性／中小M&A経験／説明力が重要</li>
+                </ul>
+              </div>
+
+              <div class="ctaBanner" aria-label="お問い合わせ（CTA）">
+                <b>財務DDのご相談（買い手・売り手）</b>
+                <p>
+                  「財務DDを依頼したい」「まずは費用感を知りたい」「買い手として何を確認すべきか相談したい」
+                  という方は、お気軽にお問い合わせください。案件の規模や業種に応じて、必要十分な調査範囲をご提案します。
+                </p>
+                <a class="btn" href="__CONTACT_URL__">お問い合わせはこちら →</a>
+              </div>
+
+              <div class="footer" aria-label="免責・注記">
+                <p style="margin:0;">
+                  ※本記事は一般的な情報提供を目的としたもので、個別案件の結論を示すものではありません。実際の対応は案件の状況に応じて専門家へご相談ください。
+                </p>
+                <p style="margin:8px 0 0;">
+                  <a href="#top">▲ ページ上部へ戻る</a>
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </article>
+      </section>
+
+      <!-- SIDEBAR (CTAを絞る：主CTA1つ + 補助CTA1つ) -->
+      <aside class="side" aria-label="サイドバー">
+        <div class="box">
+          <h3 style="margin:0 0 12px; color:#0f172a;">著者</h3>
+          <div class="author">
+            <div class="avatar" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+                <path d="M32 10v44" stroke="rgba(15,23,42,.78)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M18 18h28" stroke="rgba(42,41,84,.95)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M14 18l-8 16h16l-8-16Z" stroke="rgba(15,23,42,.40)" stroke-width="2" fill="rgba(42,41,84,.05)"/>
+                <path d="M50 18l-8 16h16l-8-16Z" stroke="rgba(15,23,42,.40)" stroke-width="2" fill="rgba(42,41,84,.05)"/>
+                <path d="M22 54h20" stroke="rgba(15,23,42,.40)" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <b>成田 貴紀</b>
+              <small>
+                公認会計士／株式会社M&A会計ファイナンス東北 代表パートナー<br/>
+                財務DD 実施件数100件超
+              </small>
+            </div>
+          </div>
+
+          <div class="cta">
+            <!-- 【必ず置換】 __CONTACT_URL__ -->
+            <a class="btn" href="__CONTACT_URL__" aria-label="お問い合わせ（URL未確定のためプレースホルダー）">
+              お問い合わせはこちら <span aria-hidden="true">→</span>
+            </a>
+            <a class="btn secondary" href="#fee">費用の目安を見る</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3 style="margin:0 0 10px;">
+            <a href="https://duqddu-my-site-y7spf6js-naritainside.wix-vibe-site.com/" target="_blank" rel="noopener" style="color:#0f172a;">株式会社M&A会計ファイナンス東北</a>
+          </h3>
+          <p style="margin:0; color: var(--text2); line-height:1.85;">
+            代表パートナー・公認会計士　成田貴紀<br/>
+            〒140-0002 宮城県仙台市青葉区中央2-11-19 仙南ビル4階-A
+          </p>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <script>
+    (function(){
+      // 固定ヘッダーがある場合は値を増やしてください
+      const offset = 8;
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', (e)=>{
+          const id = a.getAttribute('href');
+          if(!id || id === '#') return;
+          const el = document.querySelector(id);
+          if(!el) return;
+          e.preventDefault();
+          const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior:'smooth' });
+          history.pushState(null, '', id);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
